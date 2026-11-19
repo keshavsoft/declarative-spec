@@ -1,0 +1,12 @@
+[
+  {
+    "event": "click",
+    "selector": "#executeRenderBtn",
+    "action": "render"
+  },
+  {
+    "event": "click",
+    "selector": "#clearDomBtn",
+    "action": "clear"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "event": "change",
+    "selector": "#specKeySelect",
+    "action": "selectKey"
+  },
+  {
+    "event": "input",
+    "selector": "#specFilterInput",
+    "action": "filterKeys"
+  },
+  {
+    "event": "click",
+    "selector": "#showAll",
+    "action": "showAll"
+  }
+]

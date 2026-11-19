@@ -3,105 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>declarative-spec Studio V2</title>
-  <!-- Bootstrap 5 CSS for rendered components styling -->
+  <title>declarative-spec Studio V2 — Monaco & DOM</title>
+  <!-- Optional Bootstrap CSS for rendering standard components -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./topbar/css/topbar.css">
+  <link rel="stylesheet" href="./workspace/css/workspace.css">
+  <link rel="stylesheet" href="./components/left/css/left.css">
+  <link rel="stylesheet" href="./components/right/css/right.css">
+  <link rel="stylesheet" href="./components/tab2/css/tab2.css">
 </head>
-<body class="studio-body">
-  <!-- Minimal Top Header Bar -->
-  <header class="studio-header">
+<body>
+  <header class="topbar" id="topbarContainer">
     <div class="brand">
-      <span class="brand-glyph">‹/›</span>
-      <span class="brand-title">declarative-spec</span>
-      <span class="brand-badge">V2 Studio</span>
+      <span class="brand-mark">‹/›</span>
+      <strong>declarative-spec</strong>
+      <span class="crumb">/ Monaco Studio / V2</span>
     </div>
 
-    <!-- Mode Tabs: Tab 1 (Spec Editor) & Tab 2 (DOM Render) -->
-    <nav class="nav-tabs-container" role="tablist">
-      <button class="tab-btn active" id="tabSpecBtn" role="tab" aria-selected="true" data-tab="tabSpec">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-        <span>Tab 1: Spec JSON</span>
-      </button>
-      <button class="tab-btn" id="tabRenderBtn" role="tab" aria-selected="false" data-tab="tabRender">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        <span>Tab 2: Render DOM</span>
-      </button>
+    <!-- Tab Navigation managed by dom-primitive-bindings -->
+    <div class="tab-nav-group">
+      <button id="tab1NavBtn" class="tab-nav-btn active" type="button">Tab 1: Spec Editor</button>
+      <button id="tab2NavBtn" class="tab-nav-btn" type="button">Tab 2: Render DOM</button>
+    </div>
+
+    <nav class="topbar-links" aria-label="Workspace navigation">
+      <a href="../v1/">V1 Schema</a>
+      <a href="../../../">Story</a>
     </nav>
-
-    <div class="header-actions">
-      <button id="quickRenderBtn" class="action-btn primary" title="Switch to Tab 2 and render the current Monaco spec">
-        Render to DOM ⚡
-      </button>
-    </div>
   </header>
 
-  <!-- Main Viewports -->
-  <main class="studio-main">
-    <!-- TAB 1: Developer Spec Explorer & Monaco Editor -->
-    <section id="tabSpec" class="tab-pane active" role="tabpanel">
-      <!-- Left sidebar: compact spec selector -->
-      <aside class="spec-sidebar">
-        <div class="sidebar-header">
-          <label for="specKeySelect" class="sidebar-label">Spec Key</label>
-          <span id="specCountBadge" class="count-badge">0 keys</span>
-        </div>
-        <select id="specKeySelect" class="compact-select" aria-label="Select spec definition">
-          <option value="">-- Choose Spec Key --</option>
-        </select>
-
-        <div class="sidebar-search-box">
-          <input type="text" id="specSearchInput" placeholder="Filter keys..." class="compact-input">
-        </div>
-
-        <div class="sidebar-keys-list" id="specKeysList">
-          <!-- Populated dynamically -->
-        </div>
-
-        <button id="showAllSpecBtn" class="secondary-btn" type="button">Show Full spec.json</button>
-      </aside>
-
-      <!-- Right area: Monaco Editor -->
-      <section class="spec-editor-container">
-        <div class="editor-bar">
-          <span id="currentKeyLabel" class="current-key-label">Full spec.json</span>
-          <span class="editor-lang-tag">JSON</span>
-        </div>
-        <div id="monacoEditor" class="editor-canvas"></div>
-      </section>
-    </section>
-
-    <!-- TAB 2: Live DOM Render Canvas -->
-    <section id="tabRender" class="tab-pane" role="tabpanel">
-      <!-- Toolbar for Tab 2 -->
-      <div class="render-toolbar">
-        <div class="toolbar-left">
-          <button id="executeRenderBtn" class="action-btn primary">
-            ▶ Render Current Spec
-          </button>
-          <button id="clearDomBtn" class="action-btn secondary">
-            Clear Canvas
-          </button>
-          <span id="renderStatusText" class="status-indicator">Ready to render</span>
-        </div>
-        <div class="toolbar-right">
-          <span class="spec-pill" id="renderedKeyBadge">Active: Complete spec</span>
-        </div>
+  <!-- TAB 1: Spec Explorer & Monaco Editor Workspace -->
+  <main id="tab1Workspace" class="workspace">
+    <section id="leftWorkspace" class="left-workspace" aria-label="Specification discovery">
+      <div class="intro">
+        <p class="eyebrow">DECLARATIVE SPECIFICATION</p>
+        <h1>Explore & edit<br><span>DOM primitive specs.</span></h1>
+        <p class="intro-copy">Select any specification key to inspect its exact HTML tag hierarchy, attributes, and text nodes in Monaco.</p>
       </div>
 
-      <!-- DOM Canvas target container -->
-      <div class="render-canvas-wrapper">
-        <div id="dom-render-container" class="rendered-content-surface p-4">
-          <div class="empty-state-notice">
-            <p>Click <strong>"Render Current Spec"</strong> above to compile the JSON spec from Tab 1 into live DOM elements.</p>
+      <section class="selection-step" id="specSelectStep">
+        <div class="step-heading">
+          <span class="step-number">01</span>
+          <div>
+            <h2>Specification Key</h2>
+            <p>Which DOM structure do you want to inspect?</p>
           </div>
         </div>
+        
+        <select id="specKeySelect" aria-label="Choose a specification key">
+          <option value="">Choose a specification key</option>
+        </select>
+
+        <div class="filter-input-row">
+          <input type="text" id="specFilterInput" placeholder="Quick search keys..." aria-label="Quick search specification keys">
+        </div>
+
+        <div class="chips-scroll-container" id="keysContainer">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <section class="explanation" aria-live="polite">
+        <p class="eyebrow">ACTIVE COMPONENT</p>
+        <h2 id="meaningTitle">Complete specification library</h2>
+        <p id="meaningText">Viewing root spec.json. Pick a key from the dropdown to focus or navigate to Tab 2 to render live.</p>
+        <code id="selectedPath">spec</code>
+      </section>
+
+      <button id="showAll" class="show-all" type="button">Show complete spec.json</button>
+    </section>
+
+    <section id="rightWorkspace" class="right-workspace" aria-label="JSON source">
+      <div class="editor-heading">
+        <div>
+          <p class="eyebrow">JSON SPECIFICATION</p>
+          <h2 id="editorTitle">spec.json</h2>
+          <p id="editorPath">Complete declarative-spec library</p>
+        </div>
+        <span class="json-label">JSON</span>
       </div>
+      <div id="monacoEditor" class="monaco-editor"></div>
+      <footer class="editor-footer">
+        <span>declarative-spec · Monaco Studio</span>
+        <span id="editorStatus">Loading spec…</span>
+      </footer>
     </section>
   </main>
 
-  <!-- Scripts -->
+  <!-- TAB 2: Live DOM Render Workspace -->
+  <section id="tab2Container" class="tab2-pane tab-hidden">
+    <div class="tab2-wrapper">
+      <div class="render-header-card">
+        <div class="header-buttons-left">
+          <button id="executeRenderBtn" class="render-primary-btn" type="button">▶ Render Monaco Spec to DOM</button>
+          <button id="clearDomBtn" class="render-secondary-btn" type="button">Clear Canvas</button>
+        </div>
+        <div class="render-status-msg" id="renderStatusText">Ready to compile and mount DOM</div>
+      </div>
+
+      <div class="render-canvas-box">
+        <div id="dom-render-container">
+          <div class="empty-render-notice">
+            <p>Click <strong>"Render Monaco Spec to DOM"</strong> to compile the active spec from Tab 1 into live elements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monaco and Engine Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+  <script type="module" src="https://keshavsoft.github.io/dom-primitive-bindings/dist/v8/min.js"></script>
   <script type="module" src="./index.js"></script>
 </body>
 </html>

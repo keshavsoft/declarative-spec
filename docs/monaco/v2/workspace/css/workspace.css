@@ -1,0 +1,26 @@
+:root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#08111f;color:#e5edf8}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#08111f}
+.workspace{display:grid;grid-template-columns:minmax(360px,44%) minmax(0,56%);gap:18px;padding:20px;min-height:calc(100vh - 64px)}
+.workspace.tab-hidden{display:none !important}
+.tab2-pane{min-height:calc(100vh - 64px);display:flex}
+.tab2-pane.tab-hidden{display:none !important}
+.left-workspace,.right-workspace{min-width:0;border:1px solid #263750;border-radius:16px;background:#111e31;overflow:hidden}
+.left-workspace{padding:26px;display:flex;flex-direction:column;gap:16px}
+.intro{padding:5px 2px 8px}
+.eyebrow{margin:0 0 9px;color:#38bdf8;font-size:10px;font-weight:800;letter-spacing:2px}
+.intro h1{margin:0;color:#f0f5ff;font-size:clamp(28px,3vw,42px);line-height:1.06;letter-spacing:-1.5px}
+.intro h1 span{color:#38bdf8}
+.intro-copy{max-width:570px;margin:13px 0 0;color:#9eb1cb;font-size:14px;line-height:1.65}
+.explanation{margin-top:auto;padding:18px;border:1px solid #2a3d58;border-radius:12px;background:#17263c}
+.explanation h2{margin:0 0 8px;font-size:17px;color:#f0f5ff}
+.explanation p:not(.eyebrow){margin:0 0 12px;color:#a9bad1;font-size:13px;line-height:1.6}
+.explanation code{display:inline-block;color:#7dd3fc;font-size:11px;overflow-wrap:anywhere}
+.show-all{align-self:flex-start;padding:10px 14px;border:1px solid #315273;border-radius:8px;background:#142b43;color:#bfe8ff;font-size:13px;cursor:pointer}
+.show-all:hover{background:#1b3a59}
+.editor-heading{height:88px;display:flex;align-items:center;justify-content:space-between;padding:17px 22px;border-bottom:1px solid #263750}
+.editor-heading .eyebrow{color:#fbbf24}
+.editor-heading h2{margin:0 0 4px;font-size:18px;color:#f0f5ff}
+.editor-heading p:last-child{margin:0;color:#91a5c2;font-size:11px}
+.json-label{padding:7px 10px;border:1px solid #31445f;border-radius:7px;color:#b7c9e2;font-size:11px}
+.monaco-editor{height:calc(100% - 126px);min-height:560px}
+.editor-footer{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-top:1px solid #263750;color:#91a5c2;font-size:11px}
+@media(max-width:900px){.workspace{grid-template-columns:1fr}.monaco-editor{min-height:460px}.right-workspace{min-height:550px}}

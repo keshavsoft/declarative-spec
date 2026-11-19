@@ -1,0 +1,12 @@
+[
+  {
+    "event": "click",
+    "selector": "#tab1NavBtn",
+    "action": "openTab1"
+  },
+  {
+    "event": "click",
+    "selector": "#tab2NavBtn",
+    "action": "openTab2"
+  }
+]
