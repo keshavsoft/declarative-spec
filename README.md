@@ -2,6 +2,12 @@
 
 > **Canonical HTML DOM tag specifications, default utility classes, attributes, and interpolation tokens for declarative JSON-to-DOM compilers.**
 
+---
+[![LIVE DOCS](https://img.shields.io/badge/LIVE-DOCUMENTATION-blue?style=for-the-badge)](https://keshavsoft.github.io/declarative-spec/)
+[![NPM](https://img.shields.io/badge/NPM-PACKAGE-CB3837?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/declarative-spec)
+[![GITHUB](https://img.shields.io/badge/GITHUB-REPOSITORY-181717?style=for-the-badge&logo=github)](https://github.com/keshavsoft/declarative-spec)
+---
+
 Part of the **KeshavSoft Declarative UI Architecture** (Tier 2: DOM Tag Specifications).
 
 ---
