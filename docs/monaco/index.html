@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ensure directory URLs always have trailing slash so relative paths resolve correctly -->
+  <script>
+    if (!location.pathname.endsWith('/') && !location.pathname.split('/').pop().includes('.')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
   <title>Monaco Studio Versions — declarative-spec</title>
   <link rel="stylesheet" href="../story.css">
   <style>
@@ -44,8 +50,8 @@
     }
     .badge-v1 { background: #e2e8f0; color: #475569; }
     .badge-v2 { background: #e0f2fe; color: #0369a1; }
-    .badge-v3 { background: var(--mint); color: var(--green); border: 1px solid #cce5d1; }
-    .badge-v5 { background: #e0e7ff; color: #4338ca; }
+    .badge-v3 { background: #e0e7ff; color: #4338ca; }
+    .badge-v5 { background: var(--mint); color: var(--green); border: 1px solid #cce5d1; }
 
     .version-card h3 {
       margin: 0 0 10px 0;
@@ -80,10 +86,13 @@
 <body>
   <header class="top">
     <div class="topin">
-      <a class="brand" href="../index.html">KeshavSoft <span>/ declarative-spec</span></a>
+      <a class="brand" href="../">KeshavSoft <span>/ declarative-spec</span></a>
       <nav class="toplinks">
-        <a href="../index.html">← Spec Hub</a>
-        <a href="./v3/index.html" class="highlight">Launch V3 (Latest) ↗</a>
+        <a href="../">← Spec Hub</a>
+        <a href="./v1/">V1</a>
+        <a href="./v2/">V2</a>
+        <a href="./v3/">V3</a>
+        <a href="./v5/" class="highlight">Launch V5 (Latest) ↗</a>
       </nav>
     </div>
   </header>
@@ -98,7 +107,7 @@
 
     <div class="version-grid">
       <!-- V1 -->
-      <a class="version-card" href="./v1/index.html">
+      <a class="version-card" href="./v1/">
         <div>
           <span class="version-badge badge-v1">Version 1</span>
           <h3>V1 · The Classic Studio</h3>
@@ -111,7 +120,7 @@
       </a>
 
       <!-- V2 -->
-      <a class="version-card" href="./v2/index.html">
+      <a class="version-card" href="./v2/">
         <div>
           <span class="version-badge badge-v2">Version 2</span>
           <h3>V2 · Dual-Tab Studio & Live DOM</h3>
@@ -124,33 +133,33 @@
       </a>
 
       <!-- V3 -->
-      <div class="version-card" style="border-color: #a7f3d0; background: #fbfffc;">
+      <a class="version-card" href="./v3/">
         <div>
-          <span class="version-badge badge-v3">Version 3 · Recommended</span>
+          <span class="version-badge badge-v3">Version 3</span>
           <h3>V3 · Minimalist Spec Explorer</h3>
           <p>Stripped away all marketing headers and multi-tab overhead. Direct single-selector access to 60+ DOM specifications with instantaneous Monaco editor updates.</p>
         </div>
-        <div class="version-footer" style="display: flex; gap: 10px; align-items: center; justify-content: space-between;">
-          <div style="display: flex; gap: 14px;">
-            <a href="./v3/index.html" style="font-weight: 800; color: var(--green);">Launch Studio →</a>
-            <a href="./v3/story.html" style="font-weight: 600; color: #0284c7;">Read Story ↗</a>
-          </div>
+        <div class="version-footer">
+          <span>Open V3 Studio →</span>
           <span class="pill">/monaco/v3/</span>
         </div>
-      </div>
+      </a>
 
       <!-- V5 -->
-      <a class="version-card" href="./v5/index.html">
+      <div class="version-card" style="border-color: #a7f3d0; background: #fbfffc;">
         <div>
-          <span class="version-badge badge-v5">Version 5 · Parity</span>
-          <h3>V5 · Cross-Repo Parity Studio</h3>
-          <p>Minimalist spec explorer identical to V3, maintained for directory naming parity with <code>declarative-definitions</code> V5.</p>
+          <span class="version-badge badge-v5">Version 5 · Latest</span>
+          <h3>V5 · Minimalist Spec Studio</h3>
+          <p>High-density, distraction-free explorer matching the V5 architectural design. Full-screen Monaco workspace with instant element key selection.</p>
         </div>
-        <div class="version-footer">
-          <span>Open V5 Studio →</span>
+        <div class="version-footer" style="display: flex; gap: 10px; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 14px;">
+            <a href="./v5/" style="font-weight: 800; color: var(--green);">Launch Studio →</a>
+            <a href="./v5/story.html" style="font-weight: 600; color: #0284c7;">Read Story ↗</a>
+          </div>
           <span class="pill">/monaco/v5/</span>
         </div>
-      </a>
+      </div>
     </div>
 
     <div class="callout" style="margin-top: 40px;">
@@ -159,7 +168,7 @@
   </main>
 
   <footer class="footer">
-    KeshavSoft · declarative-spec · <a href="../index.html">Back to Documentation</a>
+    KeshavSoft · declarative-spec · <a href="../">Back to Documentation Hub</a>
   </footer>
 </body>
 </html>

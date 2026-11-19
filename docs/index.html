@@ -86,12 +86,14 @@
 
       <!-- Quick Links -->
       <div class="flex items-center gap-2 text-xs font-mono">
-        <a href="./monaco/v3/index.html" class="text-indigo-300 bg-indigo-950/80 border border-indigo-700/80 px-2.5 py-1 rounded font-bold hover:bg-indigo-900/80 transition flex items-center gap-1">
+        <a href="./monaco/" class="text-indigo-300 bg-indigo-950/80 border border-indigo-700/80 px-2.5 py-1 rounded font-bold hover:bg-indigo-900/80 transition flex items-center gap-1" title="All Monaco Studios">
           <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
-          <span>v3 Studio</span>
+          <span>Monaco Hub</span>
         </a>
-        <a href="./monaco/v2/index.html" class="text-zinc-400 hover:text-white px-2 py-1 rounded transition">v2</a>
-        <a href="./monaco/v1/index.html" class="text-zinc-400 hover:text-white px-2 py-1 rounded transition">v1</a>
+        <a href="./monaco/v5/" class="text-indigo-400 font-bold hover:text-white px-2 py-1 rounded transition">v5 (Latest)</a>
+        <a href="./monaco/v3/" class="text-zinc-400 hover:text-white px-2 py-1 rounded transition">v3</a>
+        <a href="./monaco/v2/" class="text-zinc-400 hover:text-white px-2 py-1 rounded transition">v2</a>
+        <a href="./monaco/v1/" class="text-zinc-400 hover:text-white px-2 py-1 rounded transition">v1</a>
         <a href="https://github.com/keshavsoft/declarative-spec" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white p-1.5 transition ml-1" title="GitHub Repository">
           <i class="bi bi-github text-base"></i>
         </a>
@@ -117,17 +119,81 @@
     </p>
 
     <!-- Launch CTA -->
-    <div class="mb-12 flex flex-wrap gap-3 justify-center">
-      <a href="./monaco/v3/index.html"
+    <div class="mb-10 flex flex-wrap gap-3 justify-center items-center">
+      <a href="./monaco/v5/"
         class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg shadow-indigo-950/60 transition transform hover:-translate-y-0.5 active:translate-y-0">
         <i class="bi bi-play-fill text-lg"></i>
-        <span>Launch V3 Spec Studio →</span>
+        <span>Launch V5 Spec Studio (Latest) →</span>
       </a>
-      <a href="./monaco/v2/index.html"
-        class="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-sm px-5 py-3 rounded-lg border border-zinc-700 transition">
-        <span>V2 Studio</span>
+      <a href="./monaco/"
+        class="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-indigo-300 font-semibold text-sm px-5 py-3 rounded-lg border border-indigo-800/60 transition">
+        <i class="bi bi-grid-fill"></i>
+        <span>Explore All Monaco Studios (v1–v5)</span>
       </a>
     </div>
+
+    <!-- Monaco Studios Hub Grid -->
+    <section class="w-full my-8">
+      <div class="text-left mb-5">
+        <span class="text-xs font-mono uppercase tracking-widest text-indigo-400 font-semibold">Interactive Workspaces</span>
+        <h2 class="text-2xl font-bold text-white mt-1">Monaco Studio Generations</h2>
+        <p class="text-zinc-400 text-sm mt-1">Directly inspect specifications across every studio build.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <!-- V5 Card -->
+        <a href="./monaco/v5/" class="p-5 rounded-xl bg-zinc-900/80 border border-indigo-700/60 hover:border-indigo-500 hover:bg-zinc-900 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800/70 font-bold uppercase">v5 · Latest</span>
+            <h3 class="text-base font-bold text-white mt-3 group-hover:text-indigo-300 transition">V5 Studio</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">Minimalist precision explorer with single-selector instant Monaco editor inspection.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs font-semibold text-indigo-400">
+            <span>Launch V5 →</span>
+            <span class="font-mono text-zinc-500 text-[11px]">/monaco/v5/</span>
+          </div>
+        </a>
+
+        <!-- V3 Card -->
+        <a href="./monaco/v3/" class="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-300 font-bold uppercase">v3 · Streamlined</span>
+            <h3 class="text-base font-bold text-white mt-3 group-hover:text-indigo-300 transition">V3 Studio</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">Direct element selector with full-screen Monaco canvas and clean bindings.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-indigo-400">
+            <span>Launch V3 →</span>
+            <span class="font-mono text-zinc-500 text-[11px]">/monaco/v3/</span>
+          </div>
+        </a>
+
+        <!-- V2 Card -->
+        <a href="./monaco/v2/" class="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-950 text-sky-400 border border-sky-800/60 font-bold uppercase">v2 · DOM Render</span>
+            <h3 class="text-base font-bold text-white mt-3 group-hover:text-sky-300 transition">V2 Studio</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">Dual-tab studio with spec code exploration and live compiled DOM mounting.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-sky-400">
+            <span>Launch V2 →</span>
+            <span class="font-mono text-zinc-500 text-[11px]">/monaco/v2/</span>
+          </div>
+        </a>
+
+        <!-- V1 Card -->
+        <a href="./monaco/v1/" class="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900 transition flex flex-col justify-between group">
+          <div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 font-bold uppercase">v1 · Classic</span>
+            <h3 class="text-base font-bold text-white mt-3 group-hover:text-zinc-200 transition">V1 Studio</h3>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">The foundational IDE interface showcasing raw spec definitions in Monaco tabs.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs font-semibold text-zinc-400 group-hover:text-zinc-200">
+            <span>Launch V1 →</span>
+            <span class="font-mono text-zinc-500 text-[11px]">/monaco/v1/</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <!-- The Story Article -->
     <article class="w-full text-left bg-zinc-900/60 border border-zinc-800 rounded-xl p-6 sm:p-8 space-y-6 text-sm text-zinc-300 leading-relaxed shadow-md">
@@ -193,11 +259,11 @@
     <div class="w-full mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
       <div class="flex items-center gap-2">
         <i class="bi bi-tag text-indigo-400"></i>
-        <span>declarative-spec v1.0.0</span>
+        <span>declarative-spec v1.2.1</span>
       </div>
       <div class="flex items-center gap-3">
-        <a href="./monaco/v1/index.html" class="text-indigo-400 hover:text-indigo-300 transition flex items-center gap-1">
-          <span>Open Monaco Studio</span>
+        <a href="./monaco/" class="text-indigo-400 hover:text-indigo-300 transition flex items-center gap-1 font-semibold">
+          <span>All Monaco Studios (v1, v2, v3, v5)</span>
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
