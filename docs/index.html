@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ensure directory URLs always have trailing slash so relative paths resolve correctly -->
+  <script>
+    if (!location.pathname.endsWith('/') && !location.pathname.split('/').pop().includes('.')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
+  <title>declarative-spec — DOM Tag Specification Hub</title>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #09090b;
+      color: #f4f4f5;
+    }
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(99, 102, 241, 0.4);
+    }
+    .gradient-border-indigo {
+      position: relative;
+      background: linear-gradient(#18181b, #18181b) padding-box,
+                  linear-gradient(135deg, #6366f1, #818cf8, #a855f7) border-box;
+      border: 2px solid transparent;
+    }
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 antialiased min-h-screen flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+
+  <!-- Navbar -->
+  <nav class="border-b border-zinc-800 bg-zinc-900/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+      <!-- Brand & Breadcrumbs -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="./index.html" class="flex items-center gap-2 text-zinc-400 hover:text-zinc-200 transition">
+          <div class="w-7 h-7 rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+            <i class="bi bi-file-earmark-code"></i>
+          </div>
+          <span class="font-bold text-sm tracking-wider uppercase text-zinc-200">declarative-spec</span>
+        </a>
+        <span class="text-zinc-600">/</span>
+        <span class="font-bold text-sm text-indigo-400 flex items-center gap-1.5">
+          <span>v1</span>
+        </span>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex items-center gap-2 text-xs font-mono">
+        <a href="./monaco/v1/index.html" class="text-indigo-300 bg-indigo-950/80 border border-indigo-700/80 px-2.5 py-1 rounded font-bold hover:bg-indigo-900/80 transition flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          <span>v1 Studio</span>
+        </a>
+        <a href="https://github.com/keshavsoft/declarative-spec" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-white p-1.5 transition ml-1" title="GitHub Repository">
+          <i class="bi bi-github text-base"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-12 flex flex-col items-center text-center">
+
+    <!-- Status Pill -->
+    <div class="inline-flex items-center gap-2 bg-zinc-900 border border-indigo-800/60 text-indigo-400 px-3.5 py-1 rounded-full text-xs font-medium mb-6 shadow-sm">
+      <span class="inline-block w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+      <span>Tier 2 • Pure HTML DOM Tag Specification Hub</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
+      The Story of <span class="bg-gradient-to-r from-indigo-400 to-purple-300 bg-clip-text text-transparent">declarative-spec</span>
+    </h1>
+
+    <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mb-8 leading-relaxed">
+      Pure, zero-dependency representations of HTML elements—decoupling tag names, CSS styling, and data interpolation tokens from JavaScript runtime frameworks.
+    </p>
+
+    <!-- Launch CTA -->
+    <div class="mb-12">
+      <a href="./monaco/v1/index.html"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-lg shadow-indigo-950/60 transition transform hover:-translate-y-0.5 active:translate-y-0">
+        <i class="bi bi-play-fill text-lg"></i>
+        <span>Launch V1 Spec Studio →</span>
+      </a>
+    </div>
+
+    <!-- The Story Article -->
+    <article class="w-full text-left bg-zinc-900/60 border border-zinc-800 rounded-xl p-6 sm:p-8 space-y-6 text-sm text-zinc-300 leading-relaxed shadow-md">
+      
+      <div>
+        <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <i class="bi bi-code-square text-indigo-400"></i>
+          <span>What is a Tag Specification?</span>
+        </h2>
+        <p>
+          Before compiling an HTML element, every compiler needs to know three basic facts: What is the tag name? What attributes or CSS classes should it possess? And where does the child content go?
+        </p>
+        <p class="pt-2">
+          In typical component frameworks, this is written inside JSX or HTML template strings. In <strong>declarative-spec</strong>, every tag is stored as a pure, serializable JSON node in <code class="text-indigo-300 font-mono">spec.json</code>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <i class="bi bi-braces text-sky-400"></i>
+          <span>The Tag Spec Structure</span>
+        </h2>
+        <p>
+          Each node in <code class="text-indigo-300 font-mono">spec.json</code> contains an immutable declarative shape:
+        </p>
+        <ul class="list-disc list-inside space-y-2 pt-2 text-zinc-400 font-mono text-xs">
+          <li><span class="text-zinc-200 font-semibold">tag:</span> The native HTML element name (<code class="text-zinc-300">table</code>, <code class="text-zinc-300">th</code>, <code class="text-zinc-300">td</code>, <code class="text-zinc-300">button</code>).</li>
+          <li><span class="text-zinc-200 font-semibold">attributes:</span> Standard serializable attributes such as <code class="text-zinc-300">class</code>, <code class="text-zinc-300">data-role</code>, <code class="text-zinc-300">type</code>.</li>
+          <li><span class="text-zinc-200 font-semibold">text / tokens:</span> Placeholder tokens like <code class="text-zinc-300">${columnName}</code> that compilers replace with row data during table/card generation.</li>
+          <li><span class="text-zinc-200 font-semibold">children:</span> An array of initial nested child tag objects.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <i class="bi bi-cpu text-emerald-400"></i>
+          <span>Blueprint Example</span>
+        </h2>
+        <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-4 font-mono text-xs text-zinc-300 overflow-x-auto">
+<pre>{
+  "buildHeader": {
+    "tag": "thead",
+    "attributes": {
+      "data-role": "headerRoot"
+    },
+    "children": []
+  },
+  "buildBodyCell": {
+    "tag": "td",
+    "attributes": {
+      "data-role": "bodyCell",
+      "class": "px-3 py-2 text-sm text-zinc-300"
+    },
+    "text": "${columnName}"
+  }
+}</pre>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- Navigation / Quick Jump Back -->
+    <div class="w-full mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
+      <div class="flex items-center gap-2">
+        <i class="bi bi-tag text-indigo-400"></i>
+        <span>declarative-spec v1.0.0</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="./monaco/v1/index.html" class="text-indigo-400 hover:text-indigo-300 transition flex items-center gap-1">
+          <span>Open Monaco Studio</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-500 bg-zinc-950">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 KeshavSoft. Released under the MIT License.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/keshavsoft/declarative-spec" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition">
+          <i class="bi bi-github mr-1"></i>GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

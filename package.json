@@ -1,0 +1,38 @@
+{
+  "name": "declarative-spec",
+  "version": "1.0.0",
+  "description": "Canonical HTML DOM tag specifications, default utility classes, attributes, and interpolation tokens for declarative JSON-to-DOM compilers.",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./v1": {
+      "import": "./src/v1/index.js",
+      "default": "./src/v1/index.js"
+    },
+    "./spec.json": "./src/v1/spec.json"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/declarative-spec.git"
+  },
+  "keywords": [
+    "declarative-ui",
+    "dom-spec",
+    "html-templates",
+    "tag-specifications",
+    "dom-compiler",
+    "zero-dependency"
+  ],
+  "author": "KeshavSoft",
+  "license": "MIT",
+  "homepage": "https://keshavsoft.github.io/declarative-spec/"
+}
