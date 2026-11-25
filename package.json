@@ -1,6 +1,6 @@
 {
   "name": "declarative-spec",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "High-level declarative UI component blueprints, option configurations, and assembly contracts for JSON-to-DOM compilers.",
   "type": "module",
   "main": "./src/index.js",
@@ -20,7 +20,8 @@
     "url": "git+https://github.com/keshavsoft/declarative-spec.git"
   },
   "scripts": {
-    "build": "npx @keshavsoft/build-cli"
+    "build:json": "node scripts/sync-latest-json.mjs",
+    "build": "npx @keshavsoft/build-cli && npm run build:json"
   },
   "keywords": [
     "declarative-ui",
